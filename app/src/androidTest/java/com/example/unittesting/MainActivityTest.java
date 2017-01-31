@@ -1,7 +1,6 @@
 package com.example.unittesting;
 
 import android.support.test.espresso.Espresso;
-import android.support.test.espresso.ViewAssertion;
 import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.assertion.ViewAssertions;
 import android.support.test.espresso.matcher.ViewMatchers;
@@ -26,19 +25,21 @@ public class MainActivityTest {
         MainActivity mainActivity = mMainActivity.getActivity();
         TextView textView = (TextView) mainActivity.findViewById(R.id.main_textview);
         String text = textView.getText().toString();
-        Assert.assertEquals(mainActivity.getString(R.string.main_textview_text), text);
+        Assert.assertEquals(mainActivity.getString(R.string.main_textview_text_default), text);
     }
 
     @Test
     public void insertNameAndCheckMessage() {
         final String testName = "Bob";
-        final String testMessage = "Hello, Bob!";
-        
+
+        MainActivity mainActivity = mMainActivity.getActivity();
+
         Espresso.onView(ViewMatchers.withId(R.id.main_edittext))
                 .perform(ViewActions.typeText(testName), ViewActions.closeSoftKeyboard());
         Espresso.onView(ViewMatchers.withId(R.id.main_button))
                 .perform(ViewActions.click());
         Espresso.onView(ViewMatchers.withId(R.id.main_textview))
-                .check(ViewAssertions.matches(ViewMatchers.withText(testMessage)));
+                .check(ViewAssertions.matches(ViewMatchers.withText(
+                        mainActivity.getString(R.string.main_textview_text, testName))));
     }
 }

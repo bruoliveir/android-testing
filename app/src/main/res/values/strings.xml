@@ -4,5 +4,6 @@
 
     <string name="main_edittext_hint">Enter a name&#8230;</string>
     <string name="main_button_text">OK</string>
-    <string name="main_textview_text">Hello, stranger!</string>
+    <string name="main_textview_text">Hello, %1$s!</string>
+    <string name="main_textview_text_default">Hello, stranger!</string>
 </resources>
