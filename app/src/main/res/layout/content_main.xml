@@ -14,9 +14,28 @@
     tools:showIn="@layout/activity_main"
     tools:context="com.example.unittesting.MainActivity">
 
+    <EditText
+        android:id="@+id/main_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/main_edittext_hint" />
+
+    <Button
+        android:id="@+id/main_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_edittext"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_centerHorizontal="true"
+        android:text="@string/main_button_text"
+        android:background="?selectableItemBackground" />
+
     <TextView
         android:id="@+id/main_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_textview_text" />
+        android:layout_below="@id/main_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/main_textview_text"
+        android:textSize="@dimen/main_textview_textsize" />
 </RelativeLayout>
